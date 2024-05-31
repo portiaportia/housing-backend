@@ -97,7 +97,7 @@ app.put("/api/houses/:id", upload.single("img"), (req, res) => {
   house.bedrooms = req.body.bedrooms;
 
   if (req.file) {
-    house.img = "images/" + req.file.filename;
+    house.main_image = "images/" + req.file.filename;
   }
 
   res.send(house);
@@ -127,6 +127,6 @@ const validateHouse = (house) => {
   return schema.validate(house);
 };
 
-app.listen(3001, () => {
+app.listen(3002, () => {
   console.log("I'm listening");
 });
